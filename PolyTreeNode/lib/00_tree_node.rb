@@ -21,4 +21,17 @@ class PolyTreeNode
         raise "That is not my child" unless children.include?(child_node)
         child_node.parent = nil
     end
+
+    def dfs(target_value)
+        return self if value == target_value
+        children.each do |child|
+            search_result = child.dfs(target_value)
+            return search_result unless search_result.nil?
+        end
+        nil
+    end
+
+    def bfs(target_value)
+
+    end
 end
